@@ -345,7 +345,9 @@ namespace PCComm
         public void SetPortNameValues(object obj)
         {
 
-            foreach (string str in SerialPort.GetPortNames())
+            string[] ports = SerialPort.GetPortNames();
+            Array.Sort(ports);
+            foreach (string str in ports)
             {
                 ((ComboBox)obj).Items.Add(str);
             }
